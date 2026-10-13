@@ -10,7 +10,27 @@ const data={
  education:{title:'Mes petites habitudes',icon:'🐾',hero:'home-card.png',text:`Le plus important : rester doux, calme et cohérent avec Baya.`,items:[`Parle-lui tranquillement.`,`Récompense les bons comportements avec une caresse ou une petite friandise.`,`Si elle hésite, laisse-lui le temps de comprendre plutôt que de la forcer.`],gallery:['home-card.png']}
 };
 function shell(html,cls=''){return `<div class="screen ${cls}">${html}</div>`}
-function home(){app.innerHTML=shell(`<div class="home" style="min-height:100vh"><div class="home-card"><img src="${A}home-card.png" alt="Baya"><div class="card-copy"><div class="name">BAYA</div><div class="subtitle">Mon petit guide</div></div><div class="heart">♥</div><button class="tap" aria-label="Ouvrir le guide" onclick="welcome()"></button></div></div>`)}
+```javascript
+function home() {
+  app.innerHTML = shell(`
+    <div class="home">
+      <div class="home-card">
+        <img src="${A}home-card.png" alt="Baya">
+        <div class="card-copy">
+          <div class="name">BAYA</div>
+          <div class="subtitle">Mon petit guide</div>
+        </div>
+        <div class="heart">♥</div>
+        <button
+          class="tap"
+          aria-label="Ouvrir le guide"
+          onclick="welcome()"
+        ></button>
+      </div>
+    </div>
+  `);
+}
+```
 function welcome(){app.innerHTML=shell(`<div class="topbar"></div><div class="welcome paw-bg"><img src="${A}welcome.png" alt="Baya"><div class="welcome-copy"><h1>VOICI UN PETIT GUIDE POUR<br>BIEN S’OCCUPER DE MOI !</h1><p>Tu viens t’occuper de moi ? Super !<br>Je te montre mes petites habitudes.</p><div class="thanks">Et surtout, MERCI ! ♥</div><button class="continue" onclick="menu()">BAYA</button></div></div>`)}
 function menu(){app.innerHTML=shell(`<div class="menu paw-bg"><div class="menu-hero"></div><div class="menu-title">Que veux-tu savoir sur moi ? 🐶</div><div class="menu-grid">${[['sortie','🚪','Sortie'],['promenade','🌿','Promenade'],['nourriture','🍽️','Croquettes'],['friandises','🦴','Friandises'],['jouets','🎾','Mes jouets'],['education','🐾','Mes habitudes'],['calins','❤️','Câlins'],['final','✨','J’ai tout compris']].map(([k,i,t])=>`<button class="menu-btn" onclick="${k==='final'?'finalScreen()':`detail('${k}')`}"><span class="menu-icon">${i}</span><span>${t}</span></button>`).join('')}</div></div>`)}
 function detail(key) {
