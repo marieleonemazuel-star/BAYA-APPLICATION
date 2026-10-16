@@ -17,8 +17,6 @@ function home() {
       <div class="home-card">
         <img src="${A}cover-page.png" alt="Baya">
         <div class="card-copy">
-          <div class="name">BAYA</div>
-          <div class="subtitle">Mon petit guide</div>
         </div>
         <div class="heart">♥</div>
         <button
