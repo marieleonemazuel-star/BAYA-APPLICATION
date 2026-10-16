@@ -15,7 +15,7 @@ function home() {
   app.innerHTML = shell(`
     <div class="home">
       <div class="home-card">
-        <img src="${A}home-card.png" alt="Baya">
+        <img src="${A}cover-page.png" alt="Baya">
         <div class="card-copy">
           <div class="name">BAYA</div>
           <div class="subtitle">Mon petit guide</div>
