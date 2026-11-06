@@ -1,23 +1,110 @@
-const app=document.getElementById('app');
-const A='assets/';
-const data={
- sortie:{title:'La sortie',icon:'🚪',hero:'door-outside.png',text:`Repère bien ma longe avant de m’ouvrir, elle ne doit pas être loin ! sur le rebord de la fenêtre ou sur les marche devant l’écurie.`,items:[`Comment ouvrir la porte : tourne l'anneau en fer`,`Je te ferai sûrement la fête... Laisse-moi te renifler avant de me caresser !`,`Si j’abime tes vêtements et que je saute, dis-moi stop et ignore moi en me tournant le dos. Sinon je croirai que c'est un jeu !`,`Je ne sais pas encore gérer mes émotions ! 😉`],gallery:['door-outside.png','door-handle.png']},
- promenade:{title:'La promenade',icon:'🌿',hero:'walk-1.png',text:`Tu peux me promener dans les chemins à côté de ma maison !`,items:[`Laisse du mou sur ma longe, sauf si on se rapproche du pré des vaches. A ce moment-là, raccourcit ma longe !`,`Et si je n’avance plus à cause des vaches, tu peux me dire « Allé » ou « ici Baya » et je te rejoindrai 😊`,`Mes balades durent entre 20 et 30 min !`,`🐕 Rencontre avec d'autres chiens : Laisse du mou sur ma longe et laisse moi renifler et découvrir le chien en face. Si ça se passe bien on peut rester un petit peu. Sinon, on avance en me disant d’y aller !`],gallery:['walk-1.png','walk-2.png','walk-cows.png','dogs.png']},
- nourriture:{title:'Les croquettes',icon:'🍽️',hero:'food-tunnel.png',text:`Avant de me rentrer, tu peux me remettre de l’eau fraiche et quelques croquettes pour m’occuper avant que tu ne sortes.`,items:[`Tu peux aussi me remettre de l’eau dans le cellier, il y a un robinet pas loin des croquettes ! 😉`],gallery:['food-tunnel.png','food-bag.png']},
- friandises:{title:'Les friandises',icon:'🦴',hero:'treat.png',text:`Baya adore les petites friandises et vient volontiers les chercher.`,items:[`Une petite friandise peut être donnée après un moment calme ou une bonne action.`,`Évite de multiplier les friandises sans raison.`,`Tu peux lui demander de venir doucement la chercher.`],gallery:['treat.png']},
- jouets:{title:'Mes jouets',icon:'🎾',hero:'red-bone.png',text:`Mes jouets préférés.`,items:[`🟥 Mon os rouge.`,`🔵 Mon os bleu.`,`🦒 Ma petite girafe.`],gallery:['red-bone.png','blue-rope.png','giraffe.png']},
- calins:{title:'Les câlins',icon:'❤️',hero:'cuddles.png',text:`J'adore les câlins. Je viendrais naturellement vers toi. Je suis un vrai pot de colle !`,items:[`J'adore les gratouilles sur le ventre et les caresses !`],gallery:['cuddles.png']},
- education:{title:'Mes petites habitudes',icon:'🐾',hero:'cover-page.png',text:`Le plus important : rester doux, calme et cohérent avec Baya.`,items:[`Parle-lui tranquillement.`,`Récompense les bons comportements avec une caresse ou une petite friandise.`,`Si elle hésite, laisse-lui le temps de comprendre plutôt que de la forcer.`],gallery:['cover-page.png']}
+
+const app = document.getElementById('app');
+const A = 'assets/';
+
+const data = {
+  sortie: {
+    title: 'La sortie',
+    icon: '🚪',
+    hero: 'door-outside.png',
+    text: `Repère bien ma longe avant de m’ouvrir, elle ne doit pas être loin ! sur le rebord de la fenêtre ou sur les marche devant l’écurie.`,
+    items: [
+      `Comment ouvrir la porte : tourne l'anneau en fer`,
+      `Je te ferai sûrement la fête... Laisse-moi te renifler avant de me caresser !`,
+      `Si j’abime tes vêtements et que je saute, dis-moi stop et ignore moi en me tournant le dos. Sinon je croirai que c'est un jeu !`,
+      `Je ne sais pas encore gérer mes émotions ! 😉`
+    ],
+    gallery: ['door-outside.png', 'door-handle.png']
+  },
+
+  promenade: {
+    title: 'La promenade',
+    icon: '🌿',
+    hero: 'walk-1.png',
+    text: `Tu peux me promener dans les chemins à côté de ma maison !`,
+    items: [
+      `Laisse du mou sur ma longe, sauf si on se rapproche du pré des vaches. A ce moment-là, raccourcit ma longe !`,
+      `Et si je n’avance plus à cause des vaches, tu peux me dire « Allé » ou « ici Baya » et je te rejoindrai 😊`,
+      `Mes balades durent entre 20 et 30 min !`,
+      `🐕 Rencontre avec d'autres chiens : Laisse du mou sur ma longe et laisse moi renifler et découvrir le chien en face. Si ça se passe bien on peut rester un petit peu. Sinon, on avance en me disant d’y aller !`
+    ],
+    gallery: ['walk-1.png', 'walk-2.png', 'walk-cows.png', 'dogs.png']
+  },
+
+  nourriture: {
+    title: 'Les croquettes',
+    icon: '🍽️',
+    hero: 'food-tunnel.png',
+    text: `C'est l'heure de manger !`,
+    items: [
+      `Dirige-toi dans le cellier, en-dessous de la montée de grange.`,
+      `Il y a un robinet et un sac de croquette dans le bac blanc pour mon petit ravito !`,
+      `Le matin je mange entre 6h30 et 8h30 en fonction de ton réveil et le soir je mange entre 18h30 et 19h30.`
+    ],
+    gallery: ['food-tunnel.png', 'food-bag.png']
+  },
+
+  friandises: {
+    title: 'Les friandises',
+    icon: '🦴',
+    hero: 'treat.png',
+    text: `Baya adore les petites friandises et vient volontiers les chercher.`,
+    items: [
+      `Une petite friandise peut être donnée après un moment calme ou une bonne action.`,
+      `Évite de multiplier les friandises sans raison.`,
+      `Tu peux lui demander de venir doucement la chercher.`
+    ],
+    gallery: ['treat.png']
+  },
+
+  jouets: {
+    title: 'Mes jouets',
+    icon: '🎾',
+    hero: 'red-bone.png',
+    text: `Mes jouets préférés.`,
+    items: [
+      `🟥 Mon os rouge.`,
+      `🔵 Mon os bleu.`,
+      `🦒 Ma petite girafe.`
+    ],
+    gallery: ['red-bone.png', 'blue-rope.png', 'giraffe.png']
+  },
+
+  calins: {
+    title: 'Les câlins',
+    icon: '❤️',
+    hero: 'cuddles.png',
+    text: `J'adore les câlins. Je viendrais naturellement vers toi. Je suis un vrai pot de colle !`,
+    items: [
+      `J'adore les gratouilles sur le ventre et les caresses !`
+    ],
+    gallery: ['cuddles.png']
+  },
+
+  education: {
+    title: 'Mes petites habitudes',
+    icon: '🐾',
+    hero: 'cover-page.png',
+    text: `Le plus important : rester doux, calme et cohérent avec Baya.`,
+    items: [
+      `Parle-lui tranquillement.`,
+      `Récompense les bons comportements avec une caresse ou une petite friandise.`,
+      `Si elle hésite, laisse-lui le temps de comprendre plutôt que de la forcer.`
+    ],
+    gallery: ['cover-page.png']
+  }
 };
-function shell(html,cls=''){return `<div class="screen ${cls}">${html}</div>`}
-```javascript
+
+function shell(html, cls = '') {
+  return `<div class="screen ${cls}">${html}</div>`;
+}
+
 function home() {
   app.innerHTML = shell(`
     <div class="home">
       <div class="home-card">
         <img src="${A}cover-page.png" alt="Baya">
-        <div class="card-copy">
-        </div>
+        <div class="card-copy"></div>
         <div class="heart">♥</div>
         <button
           class="tap"
@@ -28,11 +115,52 @@ function home() {
     </div>
   `);
 }
-```
-function welcome(){app.innerHTML=shell(`<div class="topbar"></div><div class="welcome paw-bg"><img src="${A}welcome.png" alt="Baya"><div class="welcome-copy"><h1>VOICI UN PETIT GUIDE POUR<br>BIEN S’OCCUPER DE MOI !</h1><p>Tu viens t’occuper de moi ? Super !<br>Je te montre mes petites habitudes.</p><div class="thanks">Et surtout, MERCI ! ♥</div><button class="continue" onclick="menu()">BAYA</button></div></div>`)}
-function menu(){app.innerHTML=shell(`<div class="menu paw-bg"><div class="menu-hero"></div><div class="menu-title">Que veux-tu savoir sur moi ? 🐶</div><div class="menu-grid">${[['sortie','🚪','Sortie'],['promenade','🌿','Promenade'],['nourriture','🍽️','Croquettes'],['friandises','🦴','Friandises'],['jouets','🎾','Mes jouets'],['education','🐾','Mes habitudes'],['calins','❤️','Câlins'],['final','✨','J’ai tout compris']].map(([k,i,t])=>`<button class="menu-btn" onclick="${k==='final'?'finalScreen()':`detail('${k}')`}"><span class="menu-icon">${i}</span><span>${t}</span></button>`).join('')}</div></div>`)}
+
+function welcome() {
+  app.innerHTML = shell(`
+    <div class="topbar"></div>
+    <div class="welcome paw-bg">
+      <img src="${A}welcome.png" alt="Baya">
+      <div class="welcome-copy">
+        <h1>VOICI UN PETIT GUIDE POUR<br>BIEN S’OCCUPER DE MOI !</h1>
+        <p>Tu viens t’occuper de moi ? Super !<br>Je te montre mes petites habitudes.</p>
+        <div class="thanks">Et surtout, MERCI ! ♥</div>
+        <button class="continue" onclick="menu()">BAYA</button>
+      </div>
+    </div>
+  `);
+}
+
+function menu() {
+  app.innerHTML = shell(`
+    <div class="menu paw-bg">
+      <div class="menu-hero"></div>
+      <div class="menu-title">Que veux-tu savoir sur moi ? 🐶</div>
+      <div class="menu-grid">
+        ${[
+          ['sortie', '🚪', 'Sortie'],
+          ['promenade', '🌿', 'Promenade'],
+          ['nourriture', '🍽️', 'Croquettes'],
+          ['friandises', '🦴', 'Friandises'],
+          ['jouets', '🎾', 'Mes jouets'],
+          ['education', '🐾', 'Mes habitudes'],
+          ['calins', '❤️', 'Câlins'],
+          ['final', '✨', 'J’ai tout compris']
+        ].map(([k, i, t]) => `
+          <button class="menu-btn" onclick="${k === 'final' ? 'finalScreen()' : `detail('${k}')`}">
+            <span class="menu-icon">${i}</span>
+            <span>${t}</span>
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `);
+}
+
 function detail(key) {
   const d = data[key];
+  if (!d) return;
+
   const photos = d.gallery.filter(x => x !== d.hero);
 
   app.innerHTML = shell(`
@@ -42,16 +170,43 @@ function detail(key) {
         <h1>${d.icon} ${d.title}</h1>
       </div>
       <div class="section-body">
-        <img class="hero-photo" src="${A+d.hero}" alt="${d.title}">
+        <img class="hero-photo" src="${A + d.hero}" alt="${d.title}">
         <div class="content">
           <h2>${d.text}</h2>
-          ${d.items.map((x,i)=>`<div class="rule"><strong>${i+1}.</strong> ${x}</div>`).join('')}
-          ${photos.length ? `<div class="gallery">${photos.map(x=>`<img src="${A+x}" alt="">`).join('')}</div>` : ''}
+          ${d.items.map((x, i) => `
+            <div class="rule">
+              <strong>${i + 1}.</strong> ${x}
+            </div>
+          `).join('')}
+          ${photos.length ? `
+            <div class="gallery">
+              ${photos.map(x => `<img src="${A + x}" alt="">`).join('')}
+            </div>
+          ` : ''}
         </div>
       </div>
     </div>
   `);
 }
-function finalScreen(){app.innerHTML=shell(`<div class="final"><div class="big-heart">♥</div><h1>Merci ! 🐶</h1><p>Tu connais maintenant les petites habitudes de Baya.<br>Profite bien de votre temps ensemble !</p><button class="restart" onclick="menu()">Retour au guide</button></div>`)}
+
+function finalScreen() {
+  app.innerHTML = shell(`
+    <div class="final">
+      <div class="big-heart">♥</div>
+      <h1>Merci ! 🐶</h1>
+      <p>
+        Tu connais maintenant les petites habitudes de Baya.<br>
+        Profite bien de votre temps ensemble !
+      </p>
+      <button class="restart" onclick="menu()">Retour au guide</button>
+    </div>
+  `);
+}
+
 home();
-if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
